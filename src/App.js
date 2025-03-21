@@ -79,7 +79,7 @@ const ComingSoon = () => {
                 <button onClick={handleSubscribe}>Subscribe</button>
             </div>
             <p>კონტაქტი:</p>
-            <p>Our Contacts:</p>
+            <p>Our Contact:</p>
             <p>E-mail: posserviceg@gmail.com</p>
         </div>
     );
