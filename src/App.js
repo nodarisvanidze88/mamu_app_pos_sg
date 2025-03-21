@@ -57,7 +57,7 @@ const ComingSoon = () => {
     return (
         <div className="container">
             <h1>COMING SOON</h1>
-            <p>ვებ-გვერდი მზადების პროცესშია, სიახლეებისთვის გამოგვიწერეთ</p>
+            <p>ვებ-გვერდი მზადების პროცესშია, სიახლეებისთვის გამოგვიწერეთ!</p>
             <p>Our website is under construction, follow us for updates now!</p>
 
             <div className="countdown">
@@ -78,7 +78,7 @@ const ComingSoon = () => {
                 />
                 <button onClick={handleSubscribe}>Subscribe</button>
             </div>
-            <p>ჩვენი საკონტაქტოა:</p>
+            <p>კონტაქტი:</p>
             <p>Our Contacts:</p>
             <p>E-mail: posserviceg@gmail.com</p>
         </div>
