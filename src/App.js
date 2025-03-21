@@ -4,7 +4,7 @@ import './App.css';
 const ComingSoon = () => {
     const calculateTimeLeft = () => {
         const targetDate = new Date();
-        targetDate.setDate(targetDate.getDate() + 35); // 35 days from now
+        targetDate.setDate(targetDate.getDate() + 100); // 35 days from now
         targetDate.setHours(17, 57, 59, 0);
 
         const difference = targetDate - new Date();
@@ -32,13 +32,32 @@ const ComingSoon = () => {
     }, []);
 
     const handleSubscribe = () => {
-        alert(`Subscribed with email: ${email}`);
-        setEmail('');
+        fetch(
+            'https://script.google.com/macros/s/AKfycbye7QFIvczZaj9IZ0XxDpR1ka-r86pDBOCHaw-H9BBPjInbDoiZmWCvZETnU2NRvNscwA/exec',
+            {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email }),
+            }
+        )
+            .then((response) => response.json())
+            .then((result) => {
+                alert('Subscribed successfully!');
+                setEmail('');
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                setEmail('');
+            });
     };
 
     return (
         <div className="container">
             <h1>COMING SOON</h1>
+            <p>ვებ-გვერდი მზადების პროცესშია, სიახლეებისთვის გამოგვიწერეთ</p>
             <p>Our website is under construction, follow us for updates now!</p>
 
             <div className="countdown">
@@ -59,6 +78,9 @@ const ComingSoon = () => {
                 />
                 <button onClick={handleSubscribe}>Subscribe</button>
             </div>
+            <p>ჩვენი საკონტაქტოა:</p>
+            <p>Our Contacts:</p>
+            <p>E-mail: posserviceg@gmail.com</p>
         </div>
     );
 };
