@@ -79,7 +79,7 @@ p {
 
 .subscribe-box button {
     padding: 10px;
-    background: #f2aa00;
+    background: #ff0033;
     color: white;
     border: none;
     cursor: pointer;
@@ -88,5 +88,5 @@ p {
 }
 
 .subscribe-box button:hover {
-    background: #fec642;
+    background: #f96280;
 }
