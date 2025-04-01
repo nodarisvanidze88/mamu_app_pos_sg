@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 
+// ⬇️ This defines a fixed target date (100 days from now)
+const fixedTargetDate = new Date();
+fixedTargetDate.setDate(fixedTargetDate.getDate() + 100);
+fixedTargetDate.setHours(17, 57, 59, 0);
+
 const ComingSoon = () => {
     const calculateTimeLeft = () => {
-        const targetDate = new Date();
-        targetDate.setDate(targetDate.getDate() + 100); // 35 days from now
-        targetDate.setHours(17, 57, 59, 0);
-
-        const difference = targetDate - new Date();
+        const difference = fixedTargetDate - new Date();
         let timeLeft = {};
 
         if (difference > 0) {
@@ -43,8 +44,7 @@ const ComingSoon = () => {
                 body: JSON.stringify({ email }),
             }
         )
-            .then((response) => response.json())
-            .then((result) => {
+            .then(() => {
                 alert('Subscribed successfully!');
                 setEmail('');
             })
@@ -63,7 +63,11 @@ const ComingSoon = () => {
             <div className="countdown">
                 {['Days', 'Hours', 'Minutes', 'Seconds'].map((label, index) => (
                     <div key={index} className="time-box">
-                        <span>{timeLeft[label.toLowerCase()] || '00'}</span>
+                        <span>
+                            {timeLeft[label.toLowerCase()]
+                                ?.toString()
+                                .padStart(2, '0') || '00'}
+                        </span>
                         <p>{label}</p>
                     </div>
                 ))}
