@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 
 // ⬇️ This defines a fixed target date (100 days from now)
-const fixedTargetDate = new Date('2025-07-31T17:57:59');
+const fixedTargetDate = new Date('2025-11-25T17:57:59');
 
 const ComingSoon = () => {
     const calculateTimeLeft = () => {
